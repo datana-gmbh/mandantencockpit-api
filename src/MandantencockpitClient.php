@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Datana\Mandantencockpit\Api;
 
+use OskarStark\Value\TrimmedNonEmptyString;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Symfony\Component\HttpClient\HttpClient;
@@ -26,14 +27,14 @@ use Webmozart\Assert\Assert;
  */
 final class MandantencockpitClient
 {
+    public string $secret;
     private HttpClientInterface $client;
-    private string $token;
     private LoggerInterface $logger;
 
-    public function __construct(string $baseUri, string $token, ?LoggerInterface $logger = null)
+    public function __construct(string $baseUri, string $secret, ?LoggerInterface $logger = null)
     {
         $this->client = HttpClient::createForBaseUri($baseUri);
-        $this->token = $token;
+        $this->secret = TrimmedNonEmptyString::fromString($secret)->toString();
         $this->logger = $logger ?? new NullLogger();
     }
 
@@ -63,7 +64,7 @@ final class MandantencockpitClient
                 $options,
                 [
                     'query' => [
-                        'token' => $this->token,
+                        'token' => $this->secret,
                     ],
                 ]
             )
