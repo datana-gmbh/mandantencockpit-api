@@ -18,9 +18,9 @@ composer require datana-gmbh/mandantencockpit-api
 use Datana\Mandantencockpit\Api\MandantencockpitClient;
 
 $baseUri = 'https://....';
-$token = '...';
+$secret = '...';
 
-$client = new MandantencockpitClient($baseUri, $token);
+$client = new MandantencockpitClient($baseUri, $secret);
 
 // you can now request any endpoint which needs authentication
 $client->request('GET', '/api/something', $options);

@@ -15,6 +15,7 @@ namespace Datana\Mandantencockpit\Api;
 
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
+use function Safe\sprintf;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 use Webmozart\Assert\Assert;
 
@@ -39,6 +40,9 @@ final class NotificationsApi implements NotificationsApiInterface
                 'api/dateneingaben/notification',
                 [
                     'json' => $dateneingabe,
+                    'query' => [
+                        'signature' => $this->generateSignature($dateneingabe),
+                    ],
                 ]
             );
 
@@ -62,6 +66,9 @@ final class NotificationsApi implements NotificationsApiInterface
                 '/api/dateneingaben/reminder',
                 [
                     'json' => $dateneingabe,
+                    'query' => [
+                        'signature' => $this->generateSignature($dateneingabe),
+                    ],
                 ]
             );
 
@@ -73,5 +80,20 @@ final class NotificationsApi implements NotificationsApiInterface
 
             throw $e;
         }
+    }
+
+    /**
+     * @param array<mixed> $values
+     */
+    private function generateSignature(array $values): string
+    {
+        return hash(
+            'sha256',
+            sprintf(
+                '%s-%s',
+                \Safe\json_encode($values),
+                $this->client->secret,
+            ),
+        );
     }
 }
