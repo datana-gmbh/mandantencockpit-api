@@ -15,6 +15,7 @@ namespace Datana\Mandantencockpit\Api;
 
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
+use function Safe\json_encode;
 use function Safe\sprintf;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 use Webmozart\Assert\Assert;
@@ -91,7 +92,7 @@ final class NotificationsApi implements NotificationsApiInterface
             'sha256',
             sprintf(
                 '%s-%s',
-                \Safe\json_encode($values),
+                json_encode($values),
                 $this->client->secret,
             ),
         );
