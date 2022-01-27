@@ -29,6 +29,11 @@ In your code you should type-hint to `Datana\Mandantencockpit\Api\AktenApiInterf
 
 ### Notify Dateneingabe
 
+Status Codes:
+ * ``201``
+ * ``400``
+ * ``500``
+
 ```php
 use Datana\Mandantencockpit\Api\NotificationsApi;
 use Datana\Mandantencockpit\Api\MandantencockpitClient;
@@ -40,6 +45,11 @@ $response = $notificationsApi->notifyDateneingabe(/* ... */);
 ```
 
 ### Remind Dateneingabe
+
+Status Codes:
+ * ``201``
+ * ``400``
+ * ``500``
 
 ```php
 use Datana\Mandantencockpit\Api\NotificationsApi;
