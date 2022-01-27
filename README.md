@@ -21,9 +21,6 @@ $baseUri = 'https://....';
 $secret = '...';
 
 $client = new MandantencockpitClient($baseUri, $secret);
-
-// you can now request any endpoint which needs authentication
-$client->request('GET', '/api/something', $options);
 ```
 
 ## Notifications
