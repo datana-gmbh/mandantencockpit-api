@@ -1,7 +1,7 @@
 {
-    "name": "datana-gmbh/datapool-api",
+    "name": "datana-gmbh/mandantencockpit-api",
     "type": "library",
-    "description": "API for Datapool",
+    "description": "API for Mandantencockpit",
     "license": "MIT",
     "authors": [
         {
@@ -32,12 +32,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Datana\\Datapool\\Api\\": "src/"
+            "Datana\\Mandantencockpit\\Api\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Datana\\Datapool\\Api\\Tests\\": "tests/"
+            "Datana\\Mandantencockpit\\Api\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "stable",
