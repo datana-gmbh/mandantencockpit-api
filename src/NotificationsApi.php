@@ -17,7 +17,6 @@ use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use function Safe\json_encode;
 use function Safe\sprintf;
-use Symfony\Contracts\HttpClient\ResponseInterface;
 use Webmozart\Assert\Assert;
 
 final class NotificationsApi implements NotificationsApiInterface

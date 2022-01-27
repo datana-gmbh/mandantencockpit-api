@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace Datana\Mandantencockpit\Api;
 
-use Symfony\Contracts\HttpClient\ResponseInterface;
-
 /**
  * @author Oskar Stark <oskar.stark@googlemail.de>
  */

@@ -13,12 +13,6 @@ declare(strict_types=1);
 
 namespace Datana\Mandantencockpit\Api;
 
-use Psr\Log\LoggerInterface;
-use Psr\Log\NullLogger;
-use function Safe\sprintf;
-use Symfony\Contracts\HttpClient\ResponseInterface;
-use Webmozart\Assert\Assert;
-
 final class NullNotificationsApi implements NotificationsApiInterface
 {
     public function notifyDateneingabe(array $dateneingabe): bool
