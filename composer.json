@@ -1,0 +1,61 @@
+{
+    "name": "datana-gmbh/datapool-api",
+    "type": "library",
+    "description": "API for Datapool",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Oskar Stark",
+            "email": "oskarstark@googlemail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "oskarstark/trimmed-non-empty-string": "^0.1.2",
+        "psr/log": "^1.1 || ^2.0 || ^3.0",
+        "symfony/http-client": "^4.4 || ^5.1",
+        "thecodingmachine/safe": "^1.0",
+        "webmozart/assert": "^1.7"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.2",
+        "ergebnis/test-util": "^1.5",
+        "friendsofphp/php-cs-fixer": "^2.19",
+        "phpstan/extension-installer": "^1.0",
+        "phpstan/phpstan": "^0.12.14",
+        "phpstan/phpstan-webmozart-assert": "^0.12.2",
+        "phpunit/phpunit": "^9.0",
+        "thecodingmachine/phpstan-safe-rule": "^1.0 || ^2.0"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Datana\\Datapool\\Api\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Datana\\Datapool\\Api\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "scripts": {
+        "cs": [
+            "vendor/bin/php-cs-fixer fix"
+        ],
+        "cs-check": [
+            "vendor/bin/php-cs-fixer fix --diff --diff-format=udiff --dry-run --verbose"
+        ],
+        "phpstan": [
+            "@php -d memory_limit=-1 vendor/bin/phpstan analyse --configuration phpstan.neon --no-progress"
+        ],
+        "phpstan-baseline": [
+            "@php -d memory_limit=-1 vendor/bin/phpstan analyse --configuration phpstan.neon --generate-baseline=phpstan-baseline.neon --no-progress"
+        ],
+        "test": [
+            "@php -d memory_limit=-1 vendor/bin/phpunit"
+        ]
+    }
+}
