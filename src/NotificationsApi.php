@@ -82,6 +82,9 @@ final class NotificationsApi implements NotificationsApiInterface
         }
     }
 
+    /**
+     * @param array<mixed> $values
+     */
     private function generateSignature(array $values): string
     {
         return hash(
