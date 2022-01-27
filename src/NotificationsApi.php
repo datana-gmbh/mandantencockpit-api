@@ -31,7 +31,7 @@ final class NotificationsApi implements NotificationsApiInterface
         $this->logger = $logger ?? new NullLogger();
     }
 
-    public function notifyDateneingabe(array $dateneingabe): ResponseInterface
+    public function notifyDateneingabe(array $dateneingabe): bool
     {
         Assert::notEmpty($dateneingabe);
 
@@ -49,7 +49,11 @@ final class NotificationsApi implements NotificationsApiInterface
 
             $this->logger->debug('Response', $response->toArray(false));
 
-            return $response;
+            if (!\in_array($response->getStatusCode(), [200, 201], true)) {
+                return false;
+            }
+
+            return true;
         } catch (\Throwable $e) {
             $this->logger->error($e->getMessage());
 
@@ -57,7 +61,7 @@ final class NotificationsApi implements NotificationsApiInterface
         }
     }
 
-    public function remindDateneingabe(array $dateneingabe): ResponseInterface
+    public function remindDateneingabe(array $dateneingabe): bool
     {
         Assert::notEmpty($dateneingabe);
 
@@ -75,7 +79,11 @@ final class NotificationsApi implements NotificationsApiInterface
 
             $this->logger->debug('Response', $response->toArray(false));
 
-            return $response;
+            if (!\in_array($response->getStatusCode(), [200, 201], true)) {
+                return false;
+            }
+
+            return true;
         } catch (\Throwable $e) {
             $this->logger->error($e->getMessage());
 

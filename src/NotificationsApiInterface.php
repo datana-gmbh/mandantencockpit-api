@@ -23,10 +23,10 @@ interface NotificationsApiInterface
     /**
      * @param array<mixed> $dateneingabe
      */
-    public function notifyDateneingabe(array $dateneingabe): ResponseInterface;
+    public function notifyDateneingabe(array $dateneingabe): bool;
 
     /**
      * @param array<mixed> $dateneingabe
      */
-    public function remindDateneingabe(array $dateneingabe): ResponseInterface;
+    public function remindDateneingabe(array $dateneingabe): bool;
 }
