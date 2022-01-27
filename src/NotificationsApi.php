@@ -30,7 +30,7 @@ final class NotificationsApi implements NotificationsApiInterface
         $this->logger = $logger ?? new NullLogger();
     }
 
-    public function notifyDateneingabe(array $dateneingabe): bool
+    public function sendNotificationForDateneingabe(array $dateneingabe): bool
     {
         Assert::notEmpty($dateneingabe);
 
@@ -64,7 +64,7 @@ final class NotificationsApi implements NotificationsApiInterface
         }
     }
 
-    public function remindDateneingabe(array $dateneingabe): bool
+    public function sendReminderForDateneingabe(array $dateneingabe): bool
     {
         Assert::notEmpty($dateneingabe);
 
