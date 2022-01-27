@@ -39,6 +39,10 @@ final class NotificationsApi implements NotificationsApiInterface
                 'POST',
                 '/api/dateneingaben/notification',
                 [
+                    'headers' => [
+                        'Accept' => 'application/ld+json',
+                        'Content-Type' => 'application/ld+json',
+                    ],
                     'json' => $dateneingabe,
                     'query' => [
                         'signature' => $this->generateSignature($dateneingabe),
@@ -69,6 +73,10 @@ final class NotificationsApi implements NotificationsApiInterface
                 'POST',
                 '/api/dateneingaben/reminder',
                 [
+                    'headers' => [
+                        'Accept' => 'application/ld+json',
+                        'Content-Type' => 'application/ld+json',
+                    ],
                     'json' => $dateneingabe,
                     'query' => [
                         'signature' => $this->generateSignature($dateneingabe),
