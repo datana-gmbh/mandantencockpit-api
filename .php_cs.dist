@@ -1,7 +1,7 @@
 <?php
 
 $header = <<<'HEADER'
-This file is part of Datapool-Api.
+This file is part of mandantencockpit-api.
 
 (c) Datana GmbH <info@datana.rocks>
 
