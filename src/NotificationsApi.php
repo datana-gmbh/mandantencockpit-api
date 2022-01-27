@@ -37,7 +37,7 @@ final class NotificationsApi implements NotificationsApiInterface
         try {
             $response = $this->client->request(
                 'POST',
-                'api/dateneingaben/notification',
+                '/api/dateneingaben/notification',
                 [
                     'json' => $dateneingabe,
                     'query' => [
