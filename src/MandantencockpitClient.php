@@ -64,7 +64,7 @@ final class MandantencockpitClient
                 [
                     'query' => [
                         'token' => $this->token,
-                    ]
+                    ],
                 ]
             )
         );
