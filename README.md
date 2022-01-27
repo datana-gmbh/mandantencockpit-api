@@ -41,7 +41,7 @@ use Datana\Mandantencockpit\Api\MandantencockpitClient;
 $client = new MandantencockpitClient(/* ... */);
 
 $notificationsApi = new NotificationsApi($client);
-$response = $notificationsApi->notifyDateneingabe(/* ... */);
+$response = $notificationsApi->sendNotificationForDateneingabe(/* ... */);
 ```
 
 ### Remind Dateneingabe
@@ -58,7 +58,7 @@ use Datana\Mandantencockpit\Api\MandantencockpitClient;
 $client = new MandantencockpitClient(/* ... */);
 
 $notificationsApi = new NotificationsApi($client);
-$response = $notificationsApi->remindDateneingabe(/* ... */);
+$response = $notificationsApi->sendReminderForDateneingabe(/* ... */);
 ```
 
 [build-status-master-php]: https://github.com/datana-gmbh/mandantencockpit-api/workflows/PHP/badge.svg?branch=master

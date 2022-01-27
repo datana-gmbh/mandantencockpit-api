@@ -15,12 +15,12 @@ namespace Datana\Mandantencockpit\Api;
 
 final class NullNotificationsApi implements NotificationsApiInterface
 {
-    public function notifyDateneingabe(array $dateneingabe): bool
+    public function sendNotificationForDateneingabe(array $dateneingabe): bool
     {
         return true;
     }
 
-    public function remindDateneingabe(array $dateneingabe): bool
+    public function sendReminderForDateneingabe(array $dateneingabe): bool
     {
         return true;
     }

@@ -21,10 +21,10 @@ interface NotificationsApiInterface
     /**
      * @param array<mixed> $dateneingabe
      */
-    public function notifyDateneingabe(array $dateneingabe): bool;
+    public function sendNotificationForDateneingabe(array $dateneingabe): bool;
 
     /**
      * @param array<mixed> $dateneingabe
      */
-    public function remindDateneingabe(array $dateneingabe): bool;
+    public function sendReminderForDateneingabe(array $dateneingabe): bool;
 }
