@@ -37,7 +37,7 @@ final class NotificationsApi implements NotificationsApiInterface
         try {
             $response = $this->client->request(
                 'POST',
-                '/api/dateneingaben/notification',
+                '/api/dateneingaben/send-notification',
                 [
                     'headers' => [
                         'Accept' => 'application/ld+json',
@@ -71,7 +71,7 @@ final class NotificationsApi implements NotificationsApiInterface
         try {
             $response = $this->client->request(
                 'POST',
-                '/api/dateneingaben/reminder',
+                '/api/dateneingaben/send-reminder',
                 [
                     'headers' => [
                         'Accept' => 'application/ld+json',
