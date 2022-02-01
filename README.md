@@ -23,11 +23,11 @@ $secret = '...';
 $client = new MandantencockpitClient($baseUri, $secret);
 ```
 
-## Notifications
+## Dateneingaben
 
 In your code you should type-hint to `Datana\Mandantencockpit\Api\AktenApiInterface`
 
-### Notify Dateneingabe
+### Send Notification for Dateneingabe
 
 Status Codes:
  * ``200``
@@ -36,16 +36,16 @@ Status Codes:
  * ``500``
 
 ```php
+use Datana\Mandantencockpit\Api\DateneingabenApi;
 use Datana\Mandantencockpit\Api\MandantencockpitClient;
-use Datana\Mandantencockpit\Api\NotificationsApi;
 
 $client = new MandantencockpitClient(/* ... */);
 
-$notificationsApi = new NotificationsApi($client);
-$response = $notificationsApi->sendNotificationForDateneingabe(/* ... */);
+$dateneingabenApi = new DateneingabenApi($client);
+$response = $dateneingabenApi->sendNotificationForDateneingabe(/* ... */);
 ```
 
-### Remind Dateneingabe
+### Send Reminder for Dateneingabe
 
 Status Codes:
  * ``200``
@@ -54,13 +54,13 @@ Status Codes:
  * ``500``
 
 ```php
+use Datana\Mandantencockpit\Api\DateneingabenApi;
 use Datana\Mandantencockpit\Api\MandantencockpitClient;
-use Datana\Mandantencockpit\Api\NotificationsApi;
 
 $client = new MandantencockpitClient(/* ... */);
 
-$notificationsApi = new NotificationsApi($client);
-$response = $notificationsApi->sendReminderForDateneingabe(/* ... */);
+$dateneingabenApi = new DateneingabenApi($client);
+$response = $dateneingabenApi->sendReminderForDateneingabe(/* ... */);
 ```
 
 [build-status-master-php]: https://github.com/datana-gmbh/mandantencockpit-api/workflows/PHP/badge.svg?branch=master
