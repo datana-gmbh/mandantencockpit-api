@@ -24,4 +24,9 @@ final class NullDateneingabenApi implements DateneingabenApiInterface
     {
         return true;
     }
+
+    public function purgeCache(): bool
+    {
+        return true;
+    }
 }

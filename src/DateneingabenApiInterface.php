@@ -21,4 +21,6 @@ interface DateneingabenApiInterface
     public function sendNotificationForDateneingabe(int $dateneingabeId): bool;
 
     public function sendReminderForDateneingabe(int $dateneingabeId): bool;
+
+    public function purgeCache(): bool;
 }
