@@ -55,7 +55,8 @@ final class DateneingabenApi implements DateneingabenApiInterface
 
             $this->logger->debug('Response', $response->toArray(false));
 
-            if (!\in_array($response->getStatusCode(), [200, 201], true)) {
+            $statusCode = $response->getStatusCode();
+            if ($statusCode < 200 || $statusCode > 300) {
                 return false;
             }
 
@@ -92,7 +93,8 @@ final class DateneingabenApi implements DateneingabenApiInterface
 
             $this->logger->debug('Response', $response->toArray(false));
 
-            if (!\in_array($response->getStatusCode(), [200, 201], true)) {
+            $statusCode = $response->getStatusCode();
+            if ($statusCode < 200 || $statusCode > 300) {
                 return false;
             }
 
@@ -125,7 +127,8 @@ final class DateneingabenApi implements DateneingabenApiInterface
 
             $this->logger->debug('Response', $response->toArray(false));
 
-            if (!\in_array($response->getStatusCode(), [200, 201], true)) {
+            $statusCode = $response->getStatusCode();
+            if ($statusCode < 200 || $statusCode > 300) {
                 return false;
             }
 
