@@ -42,7 +42,7 @@ use Datana\Mandantencockpit\Api\MandantencockpitClient;
 $client = new MandantencockpitClient(/* ... */);
 
 $dateneingabenApi = new DateneingabenApi($client);
-$response = $dateneingabenApi->sendNotificationForDateneingabe(/* ... */);
+$dateneingabenApi->sendNotificationForDateneingabe(/* ... */);
 ```
 
 ### Send Reminder for Dateneingabe
@@ -60,7 +60,7 @@ use Datana\Mandantencockpit\Api\MandantencockpitClient;
 $client = new MandantencockpitClient(/* ... */);
 
 $dateneingabenApi = new DateneingabenApi($client);
-$response = $dateneingabenApi->sendReminderForDateneingabe(/* ... */);
+$dateneingabenApi->sendReminderForDateneingabe(/* ... */);
 ```
 
 ### Purge Dateneingaben Cache
