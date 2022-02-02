@@ -98,9 +98,6 @@ final class DateneingabenApi implements DateneingabenApiInterface
         }
     }
 
-    /**
-     * @param array<mixed> $values
-     */
     private function generateSignature(int $dateneingabeId): string
     {
         $values = [
