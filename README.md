@@ -63,6 +63,22 @@ $dateneingabenApi = new DateneingabenApi($client);
 $response = $dateneingabenApi->sendReminderForDateneingabe(/* ... */);
 ```
 
+### Purge Dateneingaben Cache
+
+Status Codes:
+* ``200``
+* ``201``
+
+```php
+use Datana\Mandantencockpit\Api\DateneingabenApi;
+use Datana\Mandantencockpit\Api\MandantencockpitClient;
+
+$client = new MandantencockpitClient(/* ... */);
+
+$dateneingabenApi = new DateneingabenApi($client);
+$dateneingabenApi->purgeCache();
+```
+
 [build-status-master-php]: https://github.com/datana-gmbh/mandantencockpit-api/workflows/PHP/badge.svg?branch=master
 [coverage-status-master]: https://codecov.io/gh/datana-gmbh/mandantencockpit-api/branch/master/graph/badge.svg
 
