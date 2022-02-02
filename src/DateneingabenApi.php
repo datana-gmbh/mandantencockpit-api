@@ -41,7 +41,7 @@ final class DateneingabenApi implements DateneingabenApiInterface
         try {
             $response = $this->client->request(
                 'POST',
-                '/api/dateneingaben/send-notification',
+                sprintf('/api/dateneingaben/%s/send-notification', $dateneingabeId),
                 [
                     'headers' => [
                         'Accept' => 'application/ld+json',
@@ -78,7 +78,7 @@ final class DateneingabenApi implements DateneingabenApiInterface
         try {
             $response = $this->client->request(
                 'POST',
-                '/api/dateneingaben/send-reminder',
+                sprintf('/api/dateneingaben/%s/send-reminder', $dateneingabeId),
                 [
                     'headers' => [
                         'Accept' => 'application/ld+json',
