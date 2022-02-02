@@ -29,4 +29,9 @@ final class NullDateneingabenApi implements DateneingabenApiInterface
     {
         return true;
     }
+
+    public function dateneingabeHasChanged(int $dateneingabeId): bool
+    {
+        return true;
+    }
 }

@@ -27,13 +27,7 @@ $client = new MandantencockpitClient($baseUri, $secret);
 
 In your code you should type-hint to `Datana\Mandantencockpit\Api\AktenApiInterface`
 
-### Send Notification for Dateneingabe
-
-Status Codes:
- * ``200``
- * ``201``
- * ``400``
- * ``500``
+### Dateneingabe has changed
 
 ```php
 use Datana\Mandantencockpit\Api\DateneingabenApi;
@@ -41,33 +35,41 @@ use Datana\Mandantencockpit\Api\MandantencockpitClient;
 
 $client = new MandantencockpitClient(/* ... */);
 
+$dateneingabeId = 123;
+
 $dateneingabenApi = new DateneingabenApi($client);
-$dateneingabenApi->sendNotificationForDateneingabe(/* ... */);
+$dateneingabenApi->dateneingabeHasChanged($dateneingabeId);
+```
+
+### Send Notification for Dateneingabe
+
+```php
+use Datana\Mandantencockpit\Api\DateneingabenApi;
+use Datana\Mandantencockpit\Api\MandantencockpitClient;
+
+$client = new MandantencockpitClient(/* ... */);
+
+$dateneingabeId = 123;
+
+$dateneingabenApi = new DateneingabenApi($client);
+$dateneingabenApi->sendNotificationForDateneingabe($dateneingabeId);
 ```
 
 ### Send Reminder for Dateneingabe
 
-Status Codes:
- * ``200``
- * ``201``
- * ``400``
- * ``500``
-
 ```php
 use Datana\Mandantencockpit\Api\DateneingabenApi;
 use Datana\Mandantencockpit\Api\MandantencockpitClient;
 
 $client = new MandantencockpitClient(/* ... */);
 
+$dateneingabeId = 123;
+
 $dateneingabenApi = new DateneingabenApi($client);
-$dateneingabenApi->sendReminderForDateneingabe(/* ... */);
+$dateneingabenApi->sendReminderForDateneingabe($dateneingabeId);
 ```
 
 ### Purge Dateneingaben Cache
-
-Status Codes:
-* ``200``
-* ``201``
 
 ```php
 use Datana\Mandantencockpit\Api\DateneingabenApi;
