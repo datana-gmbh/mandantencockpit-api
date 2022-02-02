@@ -137,6 +137,43 @@ final class DateneingabenApi implements DateneingabenApiInterface
         }
     }
 
+    public function dateneingabeHasChanged(int $dateneingabeId): bool
+    {
+        Assert::greaterThan($dateneingabeId, 0);
+
+        $parameters = [
+            'id' => $dateneingabeId,
+        ];
+
+        try {
+            $response = $this->client->request(
+                'PUT',
+                sprintf('/api/dateneingaben/%s/changed', $dateneingabeId),
+                [
+                    'headers' => [
+                        'Accept' => 'application/ld+json',
+                        'Content-Type' => 'application/ld+json',
+                    ],
+                    'query' => array_merge($parameters, [
+                        'signature' => $this->generateSignature($parameters),
+                    ]),
+                ]
+            );
+
+            $this->logger->debug('Response', $response->toArray(false));
+
+            if (!\in_array($response->getStatusCode(), [200, 201, 204], true)) {
+                return false;
+            }
+
+            return true;
+        } catch (\Throwable $e) {
+            $this->logger->error($e->getMessage());
+
+            throw $e;
+        }
+    }
+
     /**
      * @param array<mixed> $values
      */
