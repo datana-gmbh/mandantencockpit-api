@@ -19,7 +19,7 @@ use function Safe\json_encode;
 use function Safe\sprintf;
 use Webmozart\Assert\Assert;
 
-final class NotificationsApi implements NotificationsApiInterface
+final class DateneingabenApi implements DateneingabenApiInterface
 {
     private MandantencockpitClient $client;
     private LoggerInterface $logger;
@@ -30,9 +30,9 @@ final class NotificationsApi implements NotificationsApiInterface
         $this->logger = $logger ?? new NullLogger();
     }
 
-    public function sendNotificationForDateneingabe(array $dateneingabe): bool
+    public function sendNotificationForDateneingabe(int $dateneingabeId): bool
     {
-        Assert::notEmpty($dateneingabe);
+        Assert::greaterThan($dateneingabeId, 0);
 
         try {
             $response = $this->client->request(
@@ -43,9 +43,9 @@ final class NotificationsApi implements NotificationsApiInterface
                         'Accept' => 'application/ld+json',
                         'Content-Type' => 'application/ld+json',
                     ],
-                    'json' => $dateneingabe,
                     'query' => [
-                        'signature' => $this->generateSignature($dateneingabe),
+                        'id' => $dateneingabeId,
+                        'signature' => $this->generateSignature($dateneingabeId),
                     ],
                 ]
             );
@@ -64,9 +64,9 @@ final class NotificationsApi implements NotificationsApiInterface
         }
     }
 
-    public function sendReminderForDateneingabe(array $dateneingabe): bool
+    public function sendReminderForDateneingabe(int $dateneingabeId): bool
     {
-        Assert::notEmpty($dateneingabe);
+        Assert::greaterThan($dateneingabeId, 0);
 
         try {
             $response = $this->client->request(
@@ -77,9 +77,9 @@ final class NotificationsApi implements NotificationsApiInterface
                         'Accept' => 'application/ld+json',
                         'Content-Type' => 'application/ld+json',
                     ],
-                    'json' => $dateneingabe,
                     'query' => [
-                        'signature' => $this->generateSignature($dateneingabe),
+                        'id' => $dateneingabeId,
+                        'signature' => $this->generateSignature($dateneingabeId),
                     ],
                 ]
             );
@@ -98,11 +98,12 @@ final class NotificationsApi implements NotificationsApiInterface
         }
     }
 
-    /**
-     * @param array<mixed> $values
-     */
-    private function generateSignature(array $values): string
+    private function generateSignature(int $dateneingabeId): string
     {
+        $values = [
+            'id' => $dateneingabeId,
+        ];
+
         return hash(
             'sha256',
             sprintf(

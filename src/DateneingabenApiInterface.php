@@ -13,15 +13,12 @@ declare(strict_types=1);
 
 namespace Datana\Mandantencockpit\Api;
 
-final class NullNotificationsApi implements NotificationsApiInterface
+/**
+ * @author Oskar Stark <oskar.stark@googlemail.de>
+ */
+interface DateneingabenApiInterface
 {
-    public function sendNotificationForDateneingabe(array $dateneingabe): bool
-    {
-        return true;
-    }
+    public function sendNotificationForDateneingabe(int $dateneingabeId): bool;
 
-    public function sendReminderForDateneingabe(array $dateneingabe): bool
-    {
-        return true;
-    }
+    public function sendReminderForDateneingabe(int $dateneingabeId): bool;
 }
