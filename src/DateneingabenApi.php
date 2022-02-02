@@ -34,6 +34,10 @@ final class DateneingabenApi implements DateneingabenApiInterface
     {
         Assert::greaterThan($dateneingabeId, 0);
 
+        $parameters = [
+            'id' => $dateneingabeId,
+        ];
+
         try {
             $response = $this->client->request(
                 'POST',
@@ -43,10 +47,9 @@ final class DateneingabenApi implements DateneingabenApiInterface
                         'Accept' => 'application/ld+json',
                         'Content-Type' => 'application/ld+json',
                     ],
-                    'query' => [
-                        'id' => $dateneingabeId,
-                        'signature' => $this->generateSignature($dateneingabeId),
-                    ],
+                    'query' => array_merge($parameters, [
+                        'signature' => $this->generateSignature($parameters),
+                    ]),
                 ]
             );
 
@@ -68,6 +71,10 @@ final class DateneingabenApi implements DateneingabenApiInterface
     {
         Assert::greaterThan($dateneingabeId, 0);
 
+        $parameters = [
+            'id' => $dateneingabeId,
+        ];
+
         try {
             $response = $this->client->request(
                 'POST',
@@ -77,10 +84,9 @@ final class DateneingabenApi implements DateneingabenApiInterface
                         'Accept' => 'application/ld+json',
                         'Content-Type' => 'application/ld+json',
                     ],
-                    'query' => [
-                        'id' => $dateneingabeId,
-                        'signature' => $this->generateSignature($dateneingabeId),
-                    ],
+                    'query' => array_merge($parameters, [
+                        'signature' => $this->generateSignature($parameters),
+                    ]),
                 ]
             );
 
@@ -98,12 +104,8 @@ final class DateneingabenApi implements DateneingabenApiInterface
         }
     }
 
-    private function generateSignature(int $dateneingabeId): string
+    private function generateSignature(array $values): string
     {
-        $values = [
-            'id' => $dateneingabeId,
-        ];
-
         return hash(
             'sha256',
             sprintf(
