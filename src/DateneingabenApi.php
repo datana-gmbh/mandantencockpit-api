@@ -114,7 +114,7 @@ final class DateneingabenApi implements DateneingabenApiInterface
 
         try {
             $response = $this->client->request(
-                'POST',
+                'DELETE',
                 '/api/dateneingaben/purge-cache',
                 [
                     'headers' => [
