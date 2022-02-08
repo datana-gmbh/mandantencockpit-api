@@ -34,6 +34,8 @@ final class DateneingabenApi implements DateneingabenApiInterface
     {
         Assert::greaterThan($dateneingabeId, 0);
 
+        $dateneingabeId = (string) $dateneingabeId;
+
         $parameters = [
             'id' => $dateneingabeId,
         ];
@@ -73,6 +75,8 @@ final class DateneingabenApi implements DateneingabenApiInterface
     public function sendReminderForDateneingabe(int $dateneingabeId): bool
     {
         Assert::greaterThan($dateneingabeId, 0);
+
+        $dateneingabeId = (string) $dateneingabeId;
 
         $parameters = [
             'id' => $dateneingabeId,
@@ -148,6 +152,8 @@ final class DateneingabenApi implements DateneingabenApiInterface
     public function dateneingabeHasChanged(int $dateneingabeId): bool
     {
         Assert::greaterThan($dateneingabeId, 0);
+
+        $dateneingabeId = (string) $dateneingabeId;
 
         $parameters = [
             'id' => $dateneingabeId,
