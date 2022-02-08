@@ -57,6 +57,12 @@ final class MandantencockpitClient
         Assert::notStartsWith($url, 'http', '$url should be relative: Got: %s');
         Assert::startsWith($url, '/', '$url should start with a "/". Got: %s');
 
+        $this->logger->debug('Send request', [
+            'method' => $method,
+            'url' => $url,
+            'options' => $options,
+        ]);
+
         return $this->client->request($method, $url, $options);
     }
 }
