@@ -47,6 +47,7 @@ final class DateneingabenApi implements DateneingabenApiInterface
                         'Accept' => 'application/ld+json',
                         'Content-Type' => 'application/ld+json',
                     ],
+                    'json' => [],
                     'query' => array_merge($parameters, [
                         'signature' => $this->generateSignature($parameters),
                     ]),
@@ -86,6 +87,7 @@ final class DateneingabenApi implements DateneingabenApiInterface
                         'Accept' => 'application/ld+json',
                         'Content-Type' => 'application/ld+json',
                     ],
+                    'json' => [],
                     'query' => array_merge($parameters, [
                         'signature' => $this->generateSignature($parameters),
                     ]),
@@ -160,6 +162,7 @@ final class DateneingabenApi implements DateneingabenApiInterface
                         'Accept' => 'application/ld+json',
                         'Content-Type' => 'application/ld+json',
                     ],
+                    'json' => [],
                     'query' => array_merge($parameters, [
                         'signature' => $this->generateSignature($parameters),
                     ]),
