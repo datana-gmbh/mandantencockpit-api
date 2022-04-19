@@ -34,7 +34,7 @@ final class MandantencockpitClient
     public function __construct(string $baseUri, string $secret, ?LoggerInterface $logger = null)
     {
         $this->client = HttpClient::createForBaseUri($baseUri);
-        $this->secret = TrimmedNonEmptyString::fromString($secret)->toString();
+        $this->secret = TrimmedNonEmptyString::fromString($secret, '$secret must not be an empty string!')->toString();
         $this->logger = $logger ?? new NullLogger();
     }
 
