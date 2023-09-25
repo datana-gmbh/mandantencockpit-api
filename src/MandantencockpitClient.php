@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-/*
- * This file is part of mandantencockpit-api.
+/**
+ * This file is part of datana-gmbh/mandantencockpit-api.
  *
  * (c) Datana GmbH <info@datana.rocks>
  *

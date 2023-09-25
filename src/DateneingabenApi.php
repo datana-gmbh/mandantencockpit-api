@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-/*
- * This file is part of mandantencockpit-api.
+/**
+ * This file is part of datana-gmbh/mandantencockpit-api.
  *
  * (c) Datana GmbH <info@datana.rocks>
  *
@@ -15,9 +15,9 @@ namespace Datana\Mandantencockpit\Api;
 
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
+use Webmozart\Assert\Assert;
 use function Safe\json_encode;
 use function Safe\sprintf;
-use Webmozart\Assert\Assert;
 
 final class DateneingabenApi implements DateneingabenApiInterface
 {
@@ -53,14 +53,14 @@ final class DateneingabenApi implements DateneingabenApiInterface
                     'query' => array_merge($parameters, [
                         'signature' => $this->generateSignature($parameters),
                     ]),
-                ]
+                ],
             );
 
             $this->logger->debug('Response', $response->toArray(false));
 
             $statusCode = $response->getStatusCode();
 
-            if ($statusCode < 200 || $statusCode > 300) {
+            if (200 > $statusCode || 300 < $statusCode) {
                 return false;
             }
 
@@ -95,14 +95,14 @@ final class DateneingabenApi implements DateneingabenApiInterface
                     'query' => array_merge($parameters, [
                         'signature' => $this->generateSignature($parameters),
                     ]),
-                ]
+                ],
             );
 
             $this->logger->debug('Response', $response->toArray(false));
 
             $statusCode = $response->getStatusCode();
 
-            if ($statusCode < 200 || $statusCode > 300) {
+            if (200 > $statusCode || 300 < $statusCode) {
                 return false;
             }
 
@@ -130,14 +130,14 @@ final class DateneingabenApi implements DateneingabenApiInterface
                     'query' => array_merge($parameters, [
                         'signature' => $this->generateSignature($parameters),
                     ]),
-                ]
+                ],
             );
 
             $this->logger->debug('Response', $response->toArray(false));
 
             $statusCode = $response->getStatusCode();
 
-            if ($statusCode < 200 || $statusCode > 300) {
+            if (200 > $statusCode || 300 < $statusCode) {
                 return false;
             }
 
@@ -172,7 +172,7 @@ final class DateneingabenApi implements DateneingabenApiInterface
                     'query' => array_merge($parameters, [
                         'signature' => $this->generateSignature($parameters),
                     ]),
-                ]
+                ],
             );
 
             $this->logger->debug('Response', $response->toArray(false));
