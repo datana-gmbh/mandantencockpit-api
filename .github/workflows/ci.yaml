@@ -38,7 +38,7 @@ jobs:
               run: "composer validate"
 
             - name: "Install dependencies with composer"
-              uses: "ramsey/composer-install@2.2.0"
+              uses: "ramsey/composer-install@3.0.0"
 
             - name: "Composer normalize"
               run: "composer normalize"
@@ -68,7 +68,7 @@ jobs:
                   php-version: "${{ matrix.php-version }}"
 
             - name: "Install dependencies with composer"
-              uses: "ramsey/composer-install@2.2.0"
+              uses: "ramsey/composer-install@3.0.0"
 
             - name: "Static code analysis"
               run: "composer phpstan"
@@ -95,7 +95,7 @@ jobs:
                 php-version: "${{ matrix.php-version }}"
 
             - name: "Install dependencies with composer"
-              uses: "ramsey/composer-install@2.2.0"
+              uses: "ramsey/composer-install@3.0.0"
 
             - name: "Run unit tests"
               run: "vendor/bin/phpunit --configuration=phpunit.xml.dist --coverage-clover=.build/logs/clover.xml"
